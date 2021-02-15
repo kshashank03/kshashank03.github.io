@@ -2,8 +2,13 @@
 layout: default
 title: Home
 ---
+<div 
+  <h1 "Hello"
+    </h1>
 
-<div class="posts">
+</div>
+
+<!-- <div class="posts">
   {% for post in paginator.posts %}
   <article class="post">
     <h1 class="post-title">
@@ -17,9 +22,9 @@ title: Home
     {{ post.content }}
   </article>
   {% endfor %}
-</div>
+</div> -->
 
-<div class="pagination">
+<!-- <div class="pagination">
   {% if paginator.next_page %}
     <a class="pagination-item older" href="{{ paginator.next_page_path | relative_url }}">Older</a>
   {% else %}
@@ -29,5 +34,5 @@ title: Home
     <a class="pagination-item newer" href="{{ paginator.previous_page_path | prepend: relative_url }}">Newer</a>
   {% else %}
     <span class="pagination-item newer">Newer</span>
-  {% endif %}
+  {% endif %} -->
 </div>
