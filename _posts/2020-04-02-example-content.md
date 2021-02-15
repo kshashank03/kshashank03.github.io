@@ -3,8 +3,10 @@ layout: post
 title: Example content
 ---
 
-**Howdy!** This is an example blog post that shows several types of HTML content supported in this theme.
-{: .message }
+
+<div class="message">
+  Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
+</div>
 
 Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. *Aenean eu leo quam.* Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.
 
@@ -18,29 +20,12 @@ HTML defines a long list of available inline tags, a complete list of which can 
 
 - **To bold text**, use `<strong>`.
 - *To italicize text*, use `<em>`.
-- <mark>To highlight</mark>, use `<mark>`.
 - Abbreviations, like <abbr title="HyperText Markup Langage">HTML</abbr> should use `<abbr>`, with an optional `title` attribute for the full phrase.
-- Citations, like <cite>&mdash; Mark Otto</cite>, should use `<cite>`.
+- Citations, like <cite>&mdash; Mark otto</cite>, should use `<cite>`.
 - <del>Deleted</del> text should use `<del>` and <ins>inserted</ins> text should use `<ins>`.
 - Superscript <sup>text</sup> uses `<sup>` and subscript <sub>text</sub> uses `<sub>`.
 
 Most of these elements are styled by browsers with few modifications on our part.
-
-## Footnotes
-
-Footnotes are supported as part of the Markdown syntax. Here's one in action. Clicking this number[^fn-sample_footnote] will lead you to a footnote. The syntax looks like:
-
-{% highlight text %}
-Clicking this number[^fn-sample_footnote]
-{% endhighlight %}
-
-Each footnote needs the `^fn-` prefix and a unique ID to be referenced for the footnoted content. The syntax for that list looks something like this:
-
-{% highlight text %}
-[^fn-sample_footnote]: Handy! Now click the return link to go back.
-{% endhighlight %}
-
-You can place the footnoted content wherever you like. Markdown parsers should properly place it at the bottom of the post.
 
 ## Heading
 
@@ -48,7 +33,7 @@ Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est 
 
 ### Code
 
-Inline code is available with the `<code>` element. Snippets of multiple lines of code are supported through Rouge. Longer lines will automatically scroll horizontally when needed. You may also use code fencing (triple backticks) for rendering code.
+Cum sociis natoque penatibus et magnis dis `code element` montes, nascetur ridiculus mus.
 
 {% highlight js %}
 // Example can be run directly in your JavaScript console
@@ -61,36 +46,15 @@ adder(2, 6);
 // > 8
 {% endhighlight %}
 
-You may also optionally show code snippets with line numbers. Add `linenos` to the Rouge tags.
-
-{% highlight js linenos %}
-// Example can be run directly in your JavaScript console
-
-// Create a function that takes two arguments and returns the sum of those arguments
-var adder = new Function("a", "b", "return a + b");
-
-// Call the function
-adder(2, 6);
-// > 8
-{% endhighlight %}
-
 Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.
-
-### Gists via GitHub Pages
-
-Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui.
-
-{% gist 13f94b734a4ddb132735 gist.md %}
-
-Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper.
 
 ### Lists
 
 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
 
-- Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-- Donec id elit non mi porta gravida at eget metus.
-- Nulla vitae elit libero, a pharetra augue.
+* Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+* Donec id elit non mi porta gravida at eget metus.
+* Nulla vitae elit libero, a pharetra augue.
 
 Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
 
@@ -112,14 +76,6 @@ Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at
 </dl>
 
 Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.
-
-### Images
-
-Quisque consequat sapien eget quam rhoncus, sit amet laoreet diam tempus. Aliquam aliquam metus erat, a pulvinar turpis suscipit at.
-
-![placeholder](http://placehold.it/800x400 "Large example image")
-![placeholder](http://placehold.it/400x200 "Medium example image")
-![placeholder](http://placehold.it/200x200 "Small example image")
 
 ### Tables
 
@@ -164,5 +120,3 @@ Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur e
 -----
 
 Want to see something else added? <a href="https://github.com/poole/poole/issues/new">Open an issue.</a>
-
-[^fn-sample_footnote]: Handy! Now click the return link to go back.
