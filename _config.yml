@@ -1,7 +1,6 @@
 # Setup
-title: Shashank Kalanithi
-tagline: Data Analytics Professional
-url: https://kshashank03.github.io
+title: Dark Poole
+url: https://getpoole.com
 paginate: 1
 baseurl: ""
 permalink: pretty
@@ -33,9 +32,17 @@ sass:
 
 # Specify the author for blog posts
 author:
-  name: Shashank Kalanithi
-  url: https://twitter.com/kalamari95
-  email: 
+  name: Mark Otto
+  url: https://twitter.com/mdo
+  email: markdotto@gmail.com
 
 # Custom vars
 version: 3.0.0
+
+# Navbar page list
+nav:
+  - title: Blog
+    url: /archive
+
+  - title: About
+    url: /about
