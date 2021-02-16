@@ -18,6 +18,13 @@
 
   small {
     font-weight: 400;
-    opacity: .5;
+    opacity: 0.5;
   }
+}
+
+// Navbar styles
+.nav {
+  float: right;
+  line-height: 1.25rem;
+  word-spacing: 1rem;
 }
