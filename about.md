@@ -3,27 +3,14 @@ layout: page
 title: About
 ---
 
-<p class="message">
+<!-- <p class="message">
   Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+</p> -->
 
-In the novel, *The Strange Case of Dr. Jekyll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+I am a Data Analyst Level 3 at Nordstrom with a focus on deriving value in our stores from the manipulation, cleansing, modeling, and visualization of data through the use of Alteryx, Python, SQL, and Tableau.
 
-There are currently two themes built on Poole:
+I've made a FREE course to get you started with Tableau, check it out here:
+https://www.youtube.com/watch?v=Gl2lg-TtRJo&t
 
-- [Hyde](https://hyde.getpoole.com)
-- [Lanyon](https://lanyon.getpoole.com)
-
-Learn more and contribute on [GitHub](https://github.com/poole).
-
-## Setup
-
-Some fun facts about the setup of this project include:
-
-- Built for [Jekyll](https://jekyllrb.com)
-- Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-- Coded with [Atom](https://atom.io), an amazing open source code editor
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+Check out my GitHub here:
+https://github.com/kshashank03/data-science-projects 
