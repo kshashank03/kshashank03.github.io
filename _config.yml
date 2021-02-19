@@ -42,16 +42,16 @@ version: 3.0.0
 
 # Navbar page list
 nav:
-  - title: Consulting
+  - title: Consulting |
     url: /consulting
    
-  - title: Data Science
+  - title: Data Science |
     url: /data_science
 
-  - title: Resume
+  - title: Resume |
     url: /resume
 
-  - title: Book Club
+  - title: Book Club |
     url: /book_club
 
   - title: Blog
