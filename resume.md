@@ -2,7 +2,7 @@
 layout: page
 title: Shashank Kalanithi
 ---
-Seattle, WA | shashankkalanithi@gmail.com | 214-460-7625
+#### Seattle, WA | shashankkalanithi@gmail.com | 214-460-7625
 
 ---
 ## Summary
@@ -22,7 +22,7 @@ Data Analytics Professional with a focus on extracting the full value of data to
 ---
 ## Education
 
-**Emory University | Atlanta, GA | 2013 - 2017**
+### Emory University | Atlanta, GA | 2013 - 2017
 
 Bachelors in Chemistry
 
@@ -30,11 +30,11 @@ Bachelors in Chemistry
 
 ## Certifications
 
-**Google TensorFlow Developer** - _September 2020_
+### Google TensorFlow Developer - _September 2020_
 
-**Lean Six Sigma Green Belt** - _December 2018_
+### Lean Six Sigma Green Belt - _December 2018_
 
-**Alteryx Core** - _June 2019_
+### Alteryx Core - _June 2019_
 
 ---
 ## Work Experience
