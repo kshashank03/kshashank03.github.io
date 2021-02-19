@@ -45,17 +45,17 @@ nav:
   - title: Consulting
     url: /consulting
    
-  - title: DataScience
+  - title: Data Science
     url: /data_science
 
   - title: Resume
     url: /resume
 
-  - title: BookClub
+  - title: Book Club
     url: /book_club
 
   - title: Blog
     url: /archive
 
-  - title: About
-    url: /about
+  # - title: About
+  #   url: /about

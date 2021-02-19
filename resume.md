@@ -69,6 +69,7 @@ _June 2019 - March 2020_
 - Created forecasting model based on proper experimental design and Lean principles that standardized Enterprise wide costing metric and identified $120K in future inventory obsolescence
 - Ensured accuracy of predictions and data used across the Enterprise and individual business clients. This process was conducted for tools such as o9 integrated business planning tool, Snowflake, Exasol, etc.
 
+---
 ## Notable Projects
 
 - TensorFlow Exam Guide: Created a free guide on how to use Google&#39;s Deep Learning library to better understand your data in easy to follow code snippets. Has information on image recognition, natural language processing, and time-series analysis ([https://rb.gy/ufuzvj](https://rb.gy/ufuzvj))
