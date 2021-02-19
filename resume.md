@@ -1,13 +1,8 @@
 ---
 layout: page
-title: Resume
+title: Shashank Kalanithi
 ---
-
-# Shashank Kalanithi
-
-Seattle, WA
-shashankkalanithi@gmail.com
-214-460-7625
+Seattle, WA | shashankkalanithi@gmail.com | 214-460-7625
 
 ---
 ## Summary
@@ -44,13 +39,13 @@ Bachelors in Chemistry
 ---
 ## Work Experience
 
-**Nordstrom, Inc. | Seattle, WA | Data Analyst 3**
+### Nordstrom, Inc. | Seattle, WA | Data Analyst 3
 
 _January 2021 - Present_
 
 - Leading simulation module development for internal machine learning tool
 
-**CSC ServiceWorks | Dallas, TX | Senior Data Analyst**
+### CSC ServiceWorks | Dallas, TX | Senior Data Analyst
 
 _March 2020 - January 2021_
 
@@ -62,7 +57,7 @@ _March 2020 - January 2021_
 
 - Pinpointed effects on revenue from COVID by building out revenue performance metrics in Tableau dashboard for Executive Leadership Team (ELT). This business intelligence tool helped better communicate the need to redirect operations and marketing to focus on less affected revenue centers
 
-**Interstate Batteries, Inc. | Dallas, TX | Business Analyst -> Data Analyst**
+### Interstate Batteries, Inc. | Dallas, TX | Business Analyst -> Data Analyst
 
 _June 2019 - March 2020_
 
