@@ -2,6 +2,8 @@
 layout: page
 title: Shashank Kalanithi
 ---
+# Resume
+
 #### Seattle, WA | shashankkalanithi@gmail.com | 214-460-7625
 
 ---
