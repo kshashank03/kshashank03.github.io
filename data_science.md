@@ -3,6 +3,6 @@ layout: page
 title: Data Science
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+
+# Data Science Resources
+<iframe class="airtable-embed" src="https://airtable.com/embed/shrKG0zPJlUjaybro?backgroundColor=yellow&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
