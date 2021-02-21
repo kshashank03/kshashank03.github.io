@@ -1,9 +1,7 @@
 ---
 layout: post
-title: Tensorflow Cheatsheet
+title: Tensorflow 2.x Cheatsheet
 ---
-
-# Tensorflow 2.x Cheatsheet
 
 # Artificial Neural Networks and Tensorflow Basics
 
