@@ -1,0 +1,801 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Python for Data Analysts</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="185903eb-c850-452a-bb81-fae7049661e8" class="page sans"><header><h1 class="page-title">Python for Data Analysts</h1></header><div class="page-body"><nav id="fb29293a-fef2-4af0-9bd1-75d24d62414f" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#73075bad-0caf-42b0-a76f-e1ff9d38acbc">Overview</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5f383474-482d-4a3b-8e97-e2da0d46edea">What is Python and What does it help Data Analysts do?</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d21c1d42-43ca-43c6-8fc3-4b8a97dbcbb2">Preparation</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3f0bef5d-60d2-42a4-b007-529d3849ab0e">Installing Python through conda</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3e41d03f-6942-4793-855f-c8465f815242">Download VSCode</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4e9d2b07-c7c9-4ee5-ab58-519cca05ff1a">Jupyter Notebooks</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1e7f1227-c355-4fdc-8129-e6e508ca7089">Basic Python</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#58edd635-e818-43be-9c56-fe99eaf3d70c">Python Files</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8cc62bc0-44ae-45cb-8de6-7aeff9bf4527">Jupyter Notebooks</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#40489625-4c8a-40c7-ba01-b908a77a6fb8">Objects</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d645e087-8a75-41b5-a6ae-d382fe8dc466">Variables</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#139c2aac-ff6e-4443-a8fb-a9ebd12431b2">Commenting in Python</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356182a7-87fb-4def-9c17-9fd0af31c278">Markdown Cells</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d9cc1a78-f404-45a2-a400-537aadc612c9">Data Types/Structures</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b896c6d2-ae14-4417-b42f-7cece5de5ecf">Operations</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9541af3e-da25-4a5e-83a0-308c963c5790">Functions</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#93d2f8c8-1b7a-4d7a-9486-abb58bcbd25f">Libraries and Installing new libraries</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3914f47d-8d03-439e-862e-b7d447ee8bf7">Importing a Library</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#77c76ea6-99ce-4082-a4e0-9746fe63f2bd">Methods</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#63dcc705-3d51-4e15-a741-574824de5de9">Control Statements</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2ddd527b-4b70-4006-a2ba-ab1b4586d5eb">NumPy</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d306ec16-9b40-46fb-ac7e-b9183d5eb957">NumPy Calculations</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d1f7fa96-e869-4714-8c80-ac7f61f14318">Special NumPy Arrays</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#bf8d2d0d-b396-4543-9f72-863fbdb535d4">Pandas</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ae999192-8d24-47c7-8508-3ebada84e7b4">Install Pandas</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#cde4c80e-1728-4187-b9eb-2f5abbbe5bed">Import Pandas</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#45b6dea8-1850-4fbd-818c-7d9516c07c83">Series</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#69cbfb62-01b8-4c6c-bd6c-6b3f052cd027">DataFrames</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#dd308976-db67-4e71-af3c-5253a3a0a586">Columns</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a16342ef-1dcb-4466-8910-4d8a2bcdfc59">Rows</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#de1c8046-5cad-48b5-9c05-6b775f3c5a5b">List out Columns</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b135cdd3-6b9b-47ac-9037-a4e5d04b6907">Basic Descriptive Statistics</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#6734173d-9a26-45bb-9815-d8f30381f488">See Unique Values in a Column</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#42057dd9-9a02-4069-b9d3-16c3b7dd9d68">Filtering DataFrames</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b5180736-91f8-4c7b-b30a-ca2dffbf710b">DateTimes</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c8eef7e9-d8c7-4014-ba91-0cd9808dbde3">Splitting Columns</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7c01470d-f626-4e3f-8903-fffe7f36fb96">Renaming Columns</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a7cc3e2a-782e-4c85-8201-9fef641d99d2">Dealing with Null Values - Fill Na</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8eb51f73-ce60-4df7-b16e-9988ba3bacaa">Applying a Function to Every Row</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f32252fe-6509-4395-9f4a-72c3a6ada8ad">GroupBy, Aggregation, and Sorting Values</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b4a3075f-e418-4176-8a05-058b125d83a2">Joins and Unions</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a4814fee-f478-4a2c-bcdb-21fde12f0cf7">Pivot and Melt</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#eddffa68-f6f1-4804-968b-06a63a906244">Summary</a></div></nav><h1 id="73075bad-0caf-42b0-a76f-e1ff9d38acbc" class="">Overview</h1><p id="b8aa8715-1c9a-4f96-b917-6002601d57df" class="">Welcome to my course: <strong>Python for Data Analysts</strong>. The purpose of this course is to give you the skills to get started using Python like a Data Analyst. It doesn&#x27;t teach you how to be a developer and I skip over or lightly cover any concepts that I think are less important to getting started. The idea is to just teach you what you need to get started as a Data Analyst and get you motivated enough to start learning Python in depth by yourself as you need to. </p><p id="84b33dd7-31e8-46fb-ab49-23636f6e2ca8" class="">Coding is a difficult skill to pick up and doesn&#x27;t come naturally to a lot of people including myself. If you are just learning how to code then I highly recommend you set up your Python environment the same way I did. Development environments can be complicated even for experienced individuals.</p><p id="5be5b28b-4ee9-41cd-bd45-d7190004875b" class="block-color-yellow_background">Instructions are <mark class="highlight-yellow_background">highlighted</mark></p><p id="2460f294-de5e-42f9-b36f-c3a7835c965f" class="">I&#x27;ve released a YouTube video to accompany this document and <strong><mark class="highlight-red">highly</mark></strong> recommend that you follow along with that as well. <mark class="highlight-red_background">You can find it on my YouTube channel here: </mark></p><p id="bfa286f6-ea0d-43ff-8262-6aa24cdc0f50" class="">Also make sure you <a href="http://bit.ly/shashankpythoncourse">download the datasets necessary for this tutorial here</a>.</p><p id="57558708-1b3e-47d4-83d2-1b9e5c6fed54" class="">One more thing. If this is your first time coding or you&#x27;re just starting your journey, don&#x27;t worry! You will probably need to go through this at least twice in order to start understanding </p><h2 id="5f383474-482d-4a3b-8e97-e2da0d46edea" class="">What is Python and What does it help Data Analysts do?</h2><p id="0d9efc5d-d420-41fc-bbc7-8aec70d19f81" class="">Python is a high-level, object-oriented programming language. </p><ul id="33653a52-3021-4b43-95f5-eac21918fc7b" class="bulleted-list"><li>High-level: What you program in Python is abstracted away from the actual operations a computer performs to get there. This means that programming is easier to understand</li></ul><ul id="2eb50132-471e-4fa5-814f-cf1ad1ff5b8f" class="bulleted-list"><li>Object-Oriented: Your code is designed around the idea of Objects. We&#x27;ll be going over what Objects are shortly</li></ul><p id="a3995546-f612-41ca-ad2b-4f915c9891b5" class="">It is one of the most popular languages used by Data Analysts and Scientists because it is open-source, very flexible, easy to learn, and VERY well-supported. That last point is very important because many languages have all the prior features, but because Python has gained critical mass in the Analytics industry, almost everyone who designs an application to be used by Data Analysts or Data Scientists will design it with Python compatibility. Aspects of Analytics that are well supported by Python and their respective supported libraries include:</p><ul id="a7d44d55-b404-4f0f-afbf-24f4a1f4f445" class="bulleted-list"><li><strong>Connecting to Data</strong><ul id="6d7cc5f3-94d5-4abf-bb6f-3953fe86c84b" class="bulleted-list"><li>SQL Alchemy: Connect to SQL Databases</li></ul><ul id="bc8fb106-3378-4a03-baca-2b0ffa2ddd38" class="bulleted-list"><li>PySpark: Connect to Big Data</li></ul></li></ul><ul id="d6a13734-8726-4db7-8a6a-2afb2ecbb83c" class="bulleted-list"><li><strong>Exploring Data</strong><ul id="a4e896a0-ef23-49b1-a665-76db611af423" class="bulleted-list"><li>SciPy: Run statistical analyses on data</li></ul><ul id="0e6d7502-b897-4d1c-847b-44b11e03bfa5" class="bulleted-list"><li>Pandas: Explore data stored in tables</li></ul></li></ul><ul id="d0b46dd3-bcaf-49e1-a49c-49f996bb3ed1" class="bulleted-list"><li><strong>Modeling Data</strong><ul id="38c4a266-f695-4a71-9ec4-c8baec397d96" class="bulleted-list"><li>skLearn: Machine Learning</li></ul><ul id="66eebe1a-9d28-420d-9ed3-c02ff5917644" class="bulleted-list"><li>Tensorflow: Artificial Intelligence</li></ul></li></ul><ul id="e9bcd388-8462-4643-94b6-76881cad2822" class="bulleted-list"><li><strong>Visualizing and Presenting Data</strong><ul id="f35a883a-d4a9-4e94-aa3e-a486f5647b2f" class="bulleted-list"><li>Dash/Plotly/Streamlit: Make full web-applications</li></ul></li></ul><p id="c6b8e3a1-294f-4c8a-a539-2ba496295834" class="">Let&#x27;s get started:</p><h1 id="d21c1d42-43ca-43c6-8fc3-4b8a97dbcbb2" class="">Preparation</h1><p id="f29abd12-000a-4689-8d01-815d72f7592f" class="">You&#x27;ll need three things to get started with this course:</p><ul id="c32518cc-f2bb-4c3a-b0cd-406b4729543b" class="bulleted-list"><li>Python: This will get the Python programming language + interpreter on your computer</li></ul><ul id="f011afd6-9e88-4161-a7ee-c54d124e964e" class="bulleted-list"><li>Text Editor: This will help you edit and deploy your code. We&#x27;ll be using VSCode</li></ul><ul id="4c676f99-6a5a-491c-9685-075300f70e25" class="bulleted-list"><li>Jupyter Notebook: This is a program used by Data Analysts to easily explore data using Python</li></ul><h3 id="3f0bef5d-60d2-42a4-b007-529d3849ab0e" class="">Installing Python through conda</h3><p id="a85799b5-49cc-4495-bdc5-efaf0d5ec94b" class="">We&#x27;ll be installing Python using a program called Conda. Conda was designed for Data Analysts and makes it easy to manage all the extra programs you&#x27;ll need to organize as you develop your skills. </p><p id="93f5849a-e33b-45e3-b5c2-6eb633c909ef" class="">Conda can be downloaded through a visual interface called Anaconda or a Command-Line interface called MiniConda</p><ul id="b91f0aa9-15e9-402b-a511-546763faaad1" class="bulleted-list"><li>I highly recommend using MiniConda instead of Anaconda because it’s way lighter on your system. I&#x27;ve had major issues getting Anaconda to work well on my computer and recommend against it unless you know exactly what you need it for</li></ul><p id="76708605-d97d-4c0f-8d4c-063fe25a66bb" class="block-color-yellow_background">Download the appropriate version of MiniConda from the <a href="https://docs.conda.io/en/latest/miniconda.html">official website</a></p><p id="d1c8ea80-5fdd-4304-847c-702d939a7e35" class="">If you have a Windows computer and want to know whether you have 32-Bit or 64-Bit version of the operating system, check here: <a href="https://support.microsoft.com/en-us/windows/32-bit-and-64-bit-windows-frequently-asked-questions-c6ca9541-8dce-4d48-0415-94a3faa2e13d">https://support.microsoft.com/en-us/windows/32-bit-and-64-bit-windows-frequently-asked-questions-c6ca9541-8dce-4d48-0415-94a3faa2e13d</a></p><h3 id="3e41d03f-6942-4793-855f-c8465f815242" class="">Download VSCode</h3><ul id="190ddefc-1bd2-46bf-92eb-c23b505e4a38" class="bulleted-list"><li>I prefer to use a text editor instead of an IDE because they&#x27;re just much simpler and have all the functionality a beginning Data Analyst needs</li></ul><ul id="043f94cf-d3e3-40b4-a594-ba8993e724b6" class="bulleted-list"><li>VSCode is a very well supported editor made by Microsoft</li></ul><p id="9258e881-2b83-48d2-bbe5-dd707700c641" class="block-color-yellow_background">Download the appropriate version of VSCode from the <a href="https://code.visualstudio.com/">official website</a></p><h3 id="4e9d2b07-c7c9-4ee5-ab58-519cca05ff1a" class="">Jupyter Notebooks</h3><ul id="65c65d9a-be98-4824-a0ad-a0c1caa251e6" class="bulleted-list"><li>Install the Python and Jupyter extensions</li></ul><ul id="41b7d923-dade-4048-8733-5ed416332392" class="bulleted-list"><li>I recommend using Visual Studio Code that way if you want to make .py files it&#x27;s easy</li></ul><ul id="ab4431b7-221d-4b94-8076-7df28f6322a4" class="bulleted-list"><li>Code Cells, inline plots</li></ul><p id="1a55fb50-647f-43ad-ac77-07639d5ffa0f" class="block-color-yellow_background">Open VSCode and click on the &quot;Extensions&quot; button on the left side of the toolbar. Use the search bar to download the &quot;Python&quot; and &quot;Jupyter&quot; extensions from the marketplace. </p><figure id="be4d66db-72d9-48bc-bca5-aeac09534a77" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled.png"><img style="width:1394px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled.png"/></a></figure><figure id="90fbcc99-9e18-4f34-86d5-dbdea5160c5c" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%201.png"><img style="width:896px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%201.png"/></a></figure><p id="55e58053-828e-403c-8447-949963c0d73e" class="block-color-yellow_background">Create a folder on your computer that you want to work out of and navigate to that folder by clicking on the &quot;Explorer&quot; tab on the toolbar and use the &quot;File&quot; → &quot;Open&quot; (or &quot;Open Folder&quot; on Windows&quot; to navigate to the folder you&#x27;ve just created. </p><figure id="afae7287-d69e-4f36-b186-ee8ce4b31d67" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%202.png"><img style="width:644px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%202.png"/></a></figure><p id="1e9bb32f-9d51-41ce-8832-5ddd0a05c440" class="block-color-yellow_background">If at any point through the tutorial you find that getting your computer up and running with Python isn&#x27;t working as expected, then feel free to use Google&#x27;s free online cloud programming interface at this website: <a href="https://colab.research.google.com/">https://colab.research.google.com/</a></p><h1 id="1e7f1227-c355-4fdc-8129-e6e508ca7089" class="">Basic Python</h1><h3 id="58edd635-e818-43be-9c56-fe99eaf3d70c" class="">Python Files</h3><p id="55b7538b-a198-40a4-bffa-f34c0f8e2bed" class="">Python files normally use the <code>.py</code> file extension. If you see this then you know you&#x27;re looking at a Python file. The files that we&#x27;ll be working with are called Jupyter Notebooks and have the file extension <code>.ipynb</code> (this is because they used to be called IPython Notebooks). </p><h3 id="8cc62bc0-44ae-45cb-8de6-7aeff9bf4527" class="">Jupyter Notebooks</h3><p id="6ae6a4cf-79a7-4f04-b7bc-22ce3644a515" class="">Jupyter Notebooks are files that allow you to combine code, comments, and visualizations all into one file. They are a key way that Data Analysts and Scientists interact with their data and my preferred way to programming. </p><p id="9efcba0f-bea9-4d26-81a3-a580adf432e0" class="">Code is stored in something called a cell which can be used to run code in chunks which can make development much easier. </p><p id="cc5a81d8-9822-49eb-a995-501546b223a0" class=""><a href="https://nbviewer.jupyter.org/github/ipython/ipython/blob/master/examples/IPython%20Kernel/Rich%20Output.ipynb">Here is an example</a> Notebook that was created by the people who created Jupyter Notebooks. </p><hr id="1af66aca-6076-43a3-9d9b-1f96b21f3217"/><p id="90eeb781-b2c2-442c-84de-121abc1e53ff" class="">We&#x27;re ready to get started!</p><p id="3088feb2-340c-4926-bdb4-8a01d86ab895" class="">Create a new file using this button in the folder you just created and call it <code>basic_python_datatypes.ipynb</code></p><figure id="fb83c687-98fb-4bc0-a848-ea9e0915694f" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%203.png"><img style="width:537px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%203.png"/></a></figure><h3 id="40489625-4c8a-40c7-ba01-b908a77a6fb8" class="">Objects</h3><p id="d48481ed-4c75-4a88-b57b-bcb89a61384f" class="">Everything in Python is an object. Objects are the core of the language and are what you use to do almost anything in Python. The actual technicalities of objects are worth learning but are beyond the scope of this course. </p><h3 id="d645e087-8a75-41b5-a6ae-d382fe8dc466" class="">Variables</h3><p id="fd509fa6-03f8-4117-b0aa-426f49324fc6" class="">In Python you don&#x27;t need to declare a variable the same way you need to in other languages. A variable is created when you assign a value to it.</p><p id="81695fa0-1c34-4ae7-b8c0-5fc4d661d09c" class="">In our code editor, let&#x27;s type <code>x = 5</code> and hit &quot;Shift + Enter&quot;.</p><p id="54b07cc5-cc2a-44bf-9e2c-3c037ec1a094" class="">Congratulations, you&#x27;ve declared a variable and run Python code! Type <code>x</code> in the next code cell and run the cell &quot;Shift  + Enter&quot;</p><figure id="f00b2844-4fa1-4f0e-80ec-7acb7963ea0b" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-12_at_3.24.43_PM.png"><img style="width:616px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-12_at_3.24.43_PM.png"/></a></figure><p id="8658817e-0523-4e5c-ba9a-38be6f8634f9" class="">You&#x27;ll see that you assigned the value &quot;5&quot; in one cell and run the code in the next one.</p><h3 id="139c2aac-ff6e-4443-a8fb-a9ebd12431b2" class="">Commenting in Python</h3><p id="64c8f869-6e07-404d-bc90-ccde3da00e5d" class="">Comments are a great way of documenting your code and explaining why you did certain things. You can comment using <code>#</code> to comment stuff in Python.</p><p id="3cd41488-9526-49a0-9518-7babdb2921fa" class="">You can hit &quot;CMD + /&quot;  (&quot;CTRL + /&quot; on Windows) on any line to instantly comment it</p><figure id="2f3365be-8cd3-47ed-8681-ae8ebf931e87" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-12_at_4.07.24_PM.png"><img style="width:299px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-12_at_4.07.24_PM.png"/></a></figure><h3 id="356182a7-87fb-4def-9c17-9fd0af31c278" class="">Markdown Cells</h3><p id="069ec198-eb11-4a91-ad08-5c7cf7557199" class="">In Jupyter Notebooks you have two basic cell types that you can use:</p><ul id="7419a027-242f-484e-bbb1-1f4f95dfa6e4" class="bulleted-list"><li>Code Cells - Allow you to run code</li></ul><ul id="f286ae01-9700-450d-8b23-513d2fe1ebbe" class="bulleted-list"><li>Markdown Cells - Allow you to run Markdown which is a text publishing tool that&#x27;s super easy to use</li></ul><figure id="9b695e08-8045-4a51-a3ec-68026e053064" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%204.png"><img style="width:179px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%204.png"/></a></figure><p id="9c9fb845-198c-4226-be74-74e8a36bc309" class="block-color-yellow_background">You can create a new cell using the &quot;plus&quot; button highlighted above, and change the cell from a Code cell to a Markdown Cell by clicking on the &quot;M↓&quot; button highlighted above. (If you can&#x27;t type in the cell then double tap the bar to the right of the &quot;{}&quot;</p><p id="2578ddc3-fd4b-43f0-903f-f45e13b8b2e6" class="block-color-yellow_background">Markdown allows you to use special syntax in order to make your text pop. Copy and paste the text below into the Markdown cell you just created and then hit &quot;Shift + Enter&quot; </p><pre id="3c62fd8f-fa4e-4496-b013-49c0963901ed" class="code"><code>Basic Markdown Syntax
+
+# This is a Heading
+## This is a Heading 2
+### This is a Heading 3
+
+Regular text
+
+**Bold Text**
+
+*Italic Text*
+
+Bullet Points
+* Point 1
+* Point 2
+
+Numbered Points
+
+1. Point 1
+2. Point 2</code></pre><figure id="5bff98f1-95dd-47b9-83b1-672cba1a7147" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-12_at_3.44.17_PM.png"><img style="width:371px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-12_at_3.44.17_PM.png"/></a></figure><p id="146975fe-3d73-413d-b543-17c9c60cfe81" class="block-color-yellow_background">Let&#x27;s create a new Markdown cell to label the concept of variable assignment and move it to the top using the arrows highlighted. Then let&#x27;s create a new Markdown cell and at the bottom for Data Types and Structures. Your file should look like the screenshot below:</p><figure id="f8202faa-2f6d-40a3-beaf-77c38d60e511" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-12_at_4.07.37_PM.png"><img style="width:518px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-12_at_4.07.37_PM.png"/></a></figure><h3 id="d9cc1a78-f404-45a2-a400-537aadc612c9" class="">Data Types/Structures</h3><p id="5ab3ee0e-f723-40b5-a036-d5fa3562b68b" class="">Data structures are the foundation of many programming languages. This is very important to understand and will underpin everything else we do for the rest of the course. </p><ul id="2c330787-b87c-430f-95fb-912263e44387" class="bulleted-list"><li><strong>Primitive</strong><ul id="e5ca9628-d006-44d3-aac2-4db34c83e16e" class="bulleted-list"><li>Integers: Numeric integer data from at least -2,147,483,648 through 2,147,483,647
+type(x)<pre id="25209af7-c288-49f7-aa75-1579d66791f8" class="code"><code>type(x)</code></pre><ul id="6e1b532d-6854-4a67-828e-8eb6eabb58ca" class="block-color-yellow_background bulleted-list"><li>We created an integer (called an int) called <code>x</code> earlier in the tutorial. You can check the type of the variable with the code below. You can also comment that it&#x27;s an integer.<figure id="86b046e3-5b15-4af8-afd9-bcdd177fb389" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-12_at_4.12.14_PM.png"><img style="width:266px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-12_at_4.12.14_PM.png"/></a></figure></li></ul></li></ul><ul id="fc316f94-32e9-4ce0-aca9-bfce5cb1c4eb" class="bulleted-list"><li>Floats: This stands for &quot;floating point number&quot; and basically covers real decimal numbers<figure id="8c5a45fd-c182-4217-9d77-6905d69bff00" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-12_at_4.15.28_PM.png"><img style="width:263px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-12_at_4.15.28_PM.png"/></a></figure></li></ul><ul id="53c2933c-95ff-4b03-925b-3490bf4db5fd" class="bulleted-list"><li>Strings: This is any alphanumeric data enclosed in quotations<pre id="b48e8b43-fbe6-4add-9bf9-2ad15a68c533" class="code code-wrap"><code>z = &quot;I am learning Python&quot; # A very basic string
+
+a = &quot;5&quot; # The number &quot;5&quot; as a string
+
+a = &#x27;5&#x27; # Single quotations to create a string
+
+a_two = &quot;&#x27;5&#x27;&quot; # Surround one type of quotation with another one to make that quotation part of the string
+
+b = &quot;&quot;&quot;This is a 
+multiline string&quot;&quot;&quot; # Triple quotes to denote a multiline string
+
+c = &quot;Escaping a character \&#x27;&#x27;&quot; # Use a &quot;\&quot; to &quot;escape a character&quot; meaning that you&#x27;ll print that character as is. This is useful for when you need to use special characters like single quotes
+
+d = &quot;this is how you create a \n newline, which is kind of like hitting the enter key&quot; # Use &quot;\n&quot; to denote a newline
+
+print(z) # Use the &quot;print&quot; function to look at all of these outputs
+print(a)
+print(a_two)
+print(b)
+print(c)
+print(d)</code></pre><pre id="4425c834-6ba0-4c10-862f-a50b2e154949" class="code code-wrap"><code># Here are some character escapes that you should keep in mind
+\n # This is the same as hitting the &quot;enter&quot; key
+\t # This is the same as hitting the &quot;tab&quot; key</code></pre><ul id="f4d0afb9-74d4-462f-a944-097c8563d1e8" class="bulleted-list"><li>Slicing: This is an operation that allows you to access parts of a sequential element in Python. Python uses something called 0-based indexing meaning that the &quot;first&quot; element of a sequence is actually the &quot;0th&quot; element<pre id="d6baadf6-b11c-4f74-89db-4756829e5b4f" class="code code-wrap"><code>print(z[0]) # This gets the first element of the string &quot;I am learning Python&quot;
+print(z[0:10]) # This gets the elements from 0 through 10, including 0 but excluding 10</code></pre></li></ul></li></ul><ul id="20fb2fc7-1642-4069-a01c-1f9b50edd93d" class="bulleted-list"><li>Boolean: True-False values that correlate to 1 and 0 <pre id="775e63a7-4250-4963-a81f-fd2848ed345b" class="code"><code>boolean = True # This is a boolean
+not_boolean = &quot;True&quot; # This is a string not a boolean
+
+x = 1
+y = &quot;1&quot;
+x == y # This gets us a Boolean</code></pre><ul id="59abb3c2-2ec7-44a8-9a2a-46d17a0456ea" class="bulleted-list"><li>You&#x27;ll notice we used a <code>==</code> and not a <code>=</code>. The <code>==</code> is the equality operator and denotes that two items are equal to one another. This is opposed to the <code>=</code> which is used to assign a value to a variable </li></ul></li></ul></li></ul><ul id="7bb1f70e-bb61-4b74-80b1-b6ab8e47391d" class="bulleted-list"><li><strong>Non-primitive data structures</strong><ul id="6e9ae77e-ec44-4033-afa7-58d88c267286" class="bulleted-list"><li>List / Arrays: Python does not have an Array type per say, but something called a List that more or less serves the same function<pre id="027158f8-a415-473d-93b7-c6dda9685c48" class="code"><code>a_list = [1, 2, 3, 4, 5, &quot;asdas&quot;] # This is a list
+a_list[:3] # They can be sliced the same way strings are
+a_list[::-1] # Here is an easy way to reverse a list</code></pre><ul id="f3ebe869-82c9-4f7d-bdff-6d5738c49133" class="bulleted-list"><li>Notice how you can put just about anything in a list: ints, floats, strings etc. You surround a list of items with brackets and separate them with commas</li></ul></li></ul><ul id="19f2b7f6-2eb9-48d4-91fb-79c2950d1668" class="bulleted-list"><li>Tuple: (pronounced &quot;tupp-el&quot;) This is the same thing as a list but the elements inside cannot be changed. I very rarely use them and their mostly the result of outputs from other Python libraries<pre id="e057f5c2-1cf7-4a1e-be7e-df00023d4cef" class="code code-wrap"><code>a_tuple = (1, 2, 3, 4, 5, &quot;asdas&quot;) # This is a tuple
+a_tuple[:3] # They can be sliced the same way strings are
+a_tuple[::-1] # Here is an easy way to reverse a tuple</code></pre><ul id="c0be2d99-de69-49c9-a116-197756e8503b" class="bulleted-list"><li>They can be sliced the same way lists are </li></ul></li></ul><ul id="e13c3cdf-e57f-4c4f-bf9d-fe44424249d3" class="bulleted-list"><li>Dictionary: These are key-value pairs and can be quite useful when we start working with tables<pre id="38a92ace-4ea8-42bc-83eb-4d82cf51c7a3" class="code code-wrap"><code>a_dictionary = {&quot;key&quot;:&quot;value&quot;, &quot;multiple_values&quot;:[&quot;more&quot;, &quot;than&quot;, &quot;one&quot;, &quot;value&quot;, &quot;per&quot;, &quot;key&quot;]} # This is a dictionary
+a_dictionary.get(&quot;multiple_values&quot;) # This gets the key with a certain value
+a_dictionary[&quot;key&quot;] # This is another way of finding keys</code></pre></li></ul><ul id="a3f618bd-b8e0-4a0b-94b9-46fb6cea4104" class="bulleted-list"><li>Set: A Set is an unordered, unchangeable way to store multiple variables without duplicates<pre id="fa11dd3a-a1df-4fdd-aec6-ca67880311d1" class="code code-wrap"><code>a_set = {&quot;Value&quot;, &quot;first&quot;, &quot;third&quot;}</code></pre></li></ul></li></ul><h3 id="b896c6d2-ae14-4417-b42f-7cece5de5ecf" class="">Operations</h3><p id="c0bca493-1aee-4387-b8e4-fd9ead9925f2" class="">This section was heavily inspired by <a href="https://www.w3schools.com/python/python_operators.asp">https://www.w3schools.com/python/python_operators.asp</a>, a tremendous resource for all questions about Python. </p><p id="dc678a9c-0631-44f6-a227-eb9cf33fac4d" class=""><strong>Arithmetic Operators</strong></p><pre id="a7f78932-6960-4996-a038-dfd4f484369c" class="code code-wrap"><code>add = 2 + 2
+add_str = &quot;str&quot; + &quot;strr&quot;
+add_list = [1, 2, 3, 4, 5] + [1, 2]
+
+sub = 3 - 1
+
+mult = 3 * 3
+mult_str = &quot;str&quot; * 3
+mult_list = [1, 2, 3] * 3
+
+div = 2 / 2
+
+modulo = 10%3 # Gives you the the remainder of a division operation
+
+floor_division = 7 // 2 # Gives you the largest multiple, in this case it&#x27;s 3 
+
+print(add)
+print(add_str)
+print(add_list)
+print(sub)
+print(mult)
+print(mult_str)
+print(mult_list)
+print(div)
+print(modulo)
+print(floor_division)</code></pre><p id="088a444f-e864-4f9b-ae13-af3478c4bbe9" class=""><strong>Assignment Operators</strong></p><p id="4dbfc185-4e70-411c-b594-cff6f2fbaff3" class="">You can use these to quickly change the values of variables. You can see more information on these at <a href="https://www.w3schools.com/python/python_operators.asp">https://www.w3schools.com/python/python_operators.asp</a></p><p id="76c44852-22cc-4a53-925f-e155b5042c10" class=""><strong>Comparison Operators</strong></p><p id="8d547c77-f7f1-4457-a0f7-f7866c030743" class="">Comparison operators help us compare different values to one another. They are very useful in conditional statements and can help you write more logically complex code. </p><pre id="0480a822-69d6-4fd6-a4b8-a172684cd87b" class="code code-wrap"><code>3 == 3 # Equals
+
+3 != 4 # Does not equal
+
+3 &gt; 4 # Greater than
+
+3 &lt; 5 # Less than
+
+2 &gt;= 2 # Greater than or equal to
+
+4 &lt;= 4 # Less than or equal to</code></pre><p id="40c6129d-8575-49b7-85a0-c21152fd5794" class=""><strong>Bitwise Operators</strong></p><p id="1622494b-55b0-4a8c-ad79-07f818d13284" class="">These are from the Python website: <a href="https://wiki.python.org/moin/BitwiseOperators">https://wiki.python.org/moin/BitwiseOperators</a></p><p id="6e899ecf-950e-4c5a-b4e6-d6268a6000e5" class="">You&#x27;ll see us use them to filter tables in pandas later in the course. </p><p id="d0286e46-ad21-4377-9b1d-2b91e651d855" class=""><strong>x &lt;&lt; y: </strong>Returns x with the bits shifted to the left by y places (and new bits on the right-hand-side are zeros). This is the same as multiplying x by 2**y.</p><p id="41dc54c7-3d16-4bb5-ba02-5722813df834" class=""><strong>x &gt;&gt; y: </strong>Returns x with the bits shifted to the right by y places. This is the same as //&#x27;ing x by 2**y</p><p id="a92e59cf-73ef-4851-83c1-8c5b4f01fb05" class=""><strong>x &amp; y: </strong>Does a &quot;bitwise and&quot;. Each bit of the output is 1 if the corresponding bit of x AND of y is 1, otherwise it&#x27;s 0.</p><p id="c0eaff94-6a5d-4f4a-a56b-51ce1b3cda86" class=""><strong>x | y: </strong>Does a &quot;bitwise or&quot;. Each bit of the output is 0 if the corresponding bit of x AND of y is 0, otherwise it&#x27;s 1.</p><p id="3587ed19-4e4a-468b-8b08-f440c92b5ced" class=""><strong>~ x: </strong>Returns the complement of x - the number you get by switching each 1 for a 0 and each 0 for a 1. This is the same as -x - 1.</p><p id="671e3566-3609-4fa4-9d6b-09f00af6dd1a" class=""><strong>x ^ y: </strong>Does a &quot;bitwise exclusive or&quot;. Each bit of the output is the same as the corresponding bit in x if that bit in y is 0, and it&#x27;s the complement of the bit in x if that bit in y is 1.</p><p id="826386de-660b-4ff7-aff7-f726f03fd6bf" class=""><strong>Logical Operators</strong></p><p id="f7f7c331-0356-42d0-9fba-f8ade71dd1d0" class="">These are used to string together different comparison operators. We&#x27;ll be using this when we&#x27;re filtering tables</p><pre id="6608f565-e4e2-446b-8373-6e55e703fafa" class="code code-wrap"><code>3 == 3 and 2 &lt;= 5 # Returns true if both operations are true
+3 == 3 or 2 &lt;= 1 # Returns true if one operation is true
+not(3 == 3 and 2 &lt;= 5) # Returns the opposite (False in this case)</code></pre><p id="d7e2e13d-8c9e-4acf-937f-6758c168c815" class=""><strong>Membership Operations</strong></p><p id="55fce782-638f-4d29-a674-1389a4f6aef5" class="">These check to see if an object is a member of a collection of objects. </p><pre id="3f8ce7fa-b074-47f2-8e8e-8acd2ac91b98" class="code code-wrap"><code>&quot;T&quot; in &quot;TRDFSADFASD&quot;
+&quot;z&quot; not in [&quot;a&quot;, 123, 14, 41, 41, 4]</code></pre><h3 id="9541af3e-da25-4a5e-83a0-308c963c5790" class="">Functions</h3><p id="62e9f203-a46f-4417-8b23-568e9c3d234c" class="">If you find yourself writing the same code over and over again you might need a function. A function basically allows to you create a code snippet that takes inputs and produces outputs. </p><pre id="a80eea63-59ab-4c1c-9c79-5ef2e0ae373c" class="code code-wrap"><code>def function_name(x, y, z):
+	return x + y + z # The &quot;return&quot; tells Python what to output from a function
+
+function_name(x = 1, y = 2, z = 3) # This is how we call a function
+function_name(1, 2, 3) # You can also call it like this by letting Python assume your arguments are in order 
+function_name(1, 2, z = 4) # You can also not specify earlier arguments, but specify later ones
+function_name(x = 1, 2, 3) # This is not valid (Python doesn&#x27;t know what arguments to match 2 and 3 with</code></pre><p id="f443e27a-ddab-458c-9bcf-9fdfe6b0d5f5" class="">The inputs <code>x, y, z</code> are what we called arguments. </p><h3 id="93d2f8c8-1b7a-4d7a-9486-abb58bcbd25f" class="">Libraries and Installing new libraries</h3><p id="d96d4658-8d98-4765-9cf8-5211fcd4e305" class="">One of the reasons that Python is such a great programming language is that people are constantly creating things called Libraries. These are large lumps of code that you can call in order to execute very complicated operations. If you wanted to run a machine learning algorithm for example, you&#x27;d install a library in your computer and call that library.</p><p id="13891406-25ab-48e0-bab7-8a6eb2fbde68" class=""><strong>Windows: </strong></p><p id="a671bc47-2cda-44e6-8167-42e999473b90" class="block-color-yellow_background">Open up &quot;Anaconda Prompt&quot; using the Windows start menu</p><figure id="01cb51cc-1964-4b9a-91c9-47eefddaaa46" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%205.png"><img style="width:1348px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%205.png"/></a></figure><p id="3915dd7b-09c9-49a0-9a9e-2a2e642551da" class="">Type in:</p><pre id="1e83f868-a9a9-4acb-9fdd-c0e09bb0ad0a" class="code"><code>conda install numpy</code></pre><figure id="0e1860a4-2370-497d-b583-6123eb304e5d" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%206.png"><img style="width:1498px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%206.png"/></a></figure><p id="29e0dbe7-d62c-4abb-b1bb-f184d1ff6b1a" class="">Type <code>y</code> and hit &quot;Enter&quot; and Conda should start installing the package. </p><p id="02736133-45a7-4df1-92f5-68f65e51d841" class="">It looks really complicated but this is essentially doing the same thing when a normal application installs. The advantage of using Conda like this is that it will help make sure that all of your packages are compatible with one another.</p><p id="a24b1c91-3975-404e-8206-9326f0921379" class=""><strong>Mac: </strong></p><p id="33c253cb-17e7-482d-9b6d-dbe418ef5c97" class="block-color-yellow_background">Open up your Terminal. You can access it under the Utilities folder in the Applications folder.</p><figure id="ead85cd6-e77e-4f68-b167-37447596a9da" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-12_at_1.43.37_PM.png"><img style="width:801px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-12_at_1.43.37_PM.png"/></a></figure><p id="a852e14f-ea38-47a2-9674-0f5ff3014541" class="">Type in:</p><pre id="703aeb18-59d5-4ebb-a87e-f56f05d11766" class="code"><code>conda install numpy</code></pre><figure id="6cb2cfa0-937c-4318-8fec-29b7fed1381e" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%207.png"><img style="width:762px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%207.png"/></a></figure><p id="61a840ef-677c-4215-be2d-a261434ed31f" class="">Type <code>y</code> and hit &quot;Enter&quot; and Conda should start installing the package. </p><p id="778fa8aa-a0c4-4f14-8aaa-00ca1c4916e6" class="">It looks really complicated but this is essentially doing the same thing when a normal application installs. The advantage of using Conda like this is that it will help make sure that all of your packages are compatible with one another.</p><h3 id="3914f47d-8d03-439e-862e-b7d447ee8bf7" class="">Importing a Library</h3><p id="635f8c09-7ad6-4be2-91bc-8cd6312f9b9f" class="">When we want to use a non-default library, we&#x27;ll need to import it</p><pre id="14b6d3e6-73cf-4fd7-9cdf-ed08919b21c6" class="code code-wrap"><code>import numpy as np # the &quot;as np&quot; lets us call Numpy by just typing &quot;np&quot;</code></pre><h3 id="77c76ea6-99ce-4082-a4e0-9746fe63f2bd" class="">Methods</h3><p id="940a8ea3-b334-4cf4-bf1c-82bd20e24359" class="">Methods are basically functions that are a part of classes. You call them in Python using a <code>.</code>. The highlighted section below is the method we&#x27;re calling on the list class. </p><pre id="e5e687a9-f4c2-4b75-b063-2d7a81439043" class="code"><code>test = [1, 2, 3, 4]
+
+test.append(3) # This calls a method from the &quot;list&quot; class</code></pre><h3 id="63dcc705-3d51-4e15-a741-574824de5de9" class="">Control Statements</h3><p id="c2c1f48a-d385-43a1-85c5-8b6baa62f665" class="">Control statements generally allow us to repeat operations in Python. They&#x27;re very useful and definitely worth remembering. </p><ul id="8b3cf012-f37a-43e1-8960-7a97718a4948" class="bulleted-list"><li>For Loops<pre id="bb403133-6187-48d1-af38-8bf1d6d19224" class="code code-wrap"><code>the_list = range(3, 10) # range creates a sequence of values between the two arguments
+
+for i in the_list: # This is how you start a for loop
+    i += 2 # &quot;i&quot; represents the value of the sequence you&#x27;re on
+    print(i)</code></pre></li></ul><ul id="1296b4e1-4bba-497f-bf94-5087f0083faf" class="bulleted-list"><li>While Loops<pre id="812ef062-61eb-43a5-a336-64a86a21053e" class="code code-wrap"><code>x = 0
+
+while x &lt; 5: # The condition that has to be true for this loop to continue
+    x +=1 # These are the calculations that are performed each loop
+    print(x)</code></pre></li></ul><ul id="77c637b4-7ab6-4d66-97ca-8e50656bc694" class="bulleted-list"><li>If - Then<pre id="efb867aa-0fec-4130-80e6-dffacf3b1747" class="code code-wrap"><code>x = 3
+y = 5
+
+if x == y:
+    print(&quot;x equals y&quot;)
+elif x &gt; y:
+    print(&quot;x is greater than y&quot;)
+else: 
+    print(&quot;x is less than y&quot;)</code></pre></li></ul><ul id="8cc1cbde-b8d7-49d6-8c20-fd9e681c04c5" class="bulleted-list"><li>Try - Except: Try will help you block errors from your code<pre id="2a29f873-8ae4-4918-9d27-349a26c3d4f5" class="code code-wrap"><code>try:
+    2 / 0 # You can&#x27;t divide by 0 and this will throw an exception
+except ZeroDivisionError:
+    print(&quot;Can&#x27;t divide by 0&quot;)</code></pre></li></ul><ul id="fc19849e-f95c-4329-a537-2473ba26bddb" class="bulleted-list"><li>With<ul id="b51c46e7-dbec-4009-82ea-a543e83a7e3b" class="bulleted-list"><li>The best explanation of the <code>with</code> statement I&#x27;ve seen comes from <a href="https://www.geeksforgeeks.org/with-statement-in-python/">https://www.geeksforgeeks.org/with-statement-in-python/</a><ul id="d216112d-64bb-4231-9083-bdf1c752d41e" class="bulleted-list"><li>[The] with statement helps avoiding bugs and leaks by ensuring that a resource is properly released when the code using the resource is completely executed. The with statement is popularly used with file streams, as shown above and with Locks, sockets, subprocesses and telnets etc.</li></ul></li></ul><ul id="3c47d5e2-7383-433a-acaa-667c38fce018" class="bulleted-list"><li>A common usage of the <code>with</code> statement is to read files. You want to use this statement in order to make sure that the filestream is closed after the file is opened<pre id="47ab3b99-1e32-4771-8d06-4c0227ca45ab" class="code code-wrap"><code>with open(&#x27;dog_breeds.txt&#x27;, &#x27;rb&#x27;) as reader:
+	print(&quot;File has been read&quot;)</code></pre></li></ul></li></ul><ul id="160ab720-4997-40f5-8400-b57345e2db6e" class="bulleted-list"><li>FAQ<ul id="36a52220-e3a7-4ae8-8e7e-2ecc9e73f1ef" class="bulleted-list"><li><a href="https://www.reddit.com/r/learnpython/wiki/faq">https://www.reddit.com/r/learnpython/wiki/faq</a></li></ul></li></ul><h1 id="2ddd527b-4b70-4006-a2ba-ab1b4586d5eb" class="">NumPy</h1><p id="4d6f5252-c673-47f7-b43b-241f0aa7eaac" class="">The tutorial on NumPy is heavily borrowed from the NumPy website; <a href="https://numpy.org/devdocs/user/quickstart.html">https://numpy.org/devdocs/user/quickstart.html</a></p><p id="15671523-db86-4f7e-a035-45b5fc08a831" class="">NumPy (num-pie) or &quot;Numerical Python&quot; is a Python library that undergirds almost all of Python&#x27;s advanced mathematical and statistical functions. You might not use it too much directly but you&#x27;ll be interacting with it constantly through other libraries. </p><p id="42a4029f-e44e-4f88-bde5-84d3d9d4800b" class="">The core of NumPy are the NumPy arrays which are kind of like very advanced Python Lists.</p><pre id="63fa9585-6301-4a73-bfcc-a4ceea4a41c6" class="code code-wrap"><code>import numpy as np
+
+a = np.array([2, 3, 4])
+
+# Make sure you use a list to create an array, the below is wrong
+b = np.array(2, 3, 4)</code></pre><p id="d328abf9-915d-4171-95b2-ae05beb49628" class="">In the code block above, <code>a</code> is a 1-dimensional array. </p><pre id="2baa2f5f-2204-4ab3-93e1-de115efb4d14" class="code code-wrap"><code>c = np.array([2, 3, 4, 5, 6, 2]).reshape(2, 3)</code></pre><p id="3b13a13b-1e28-45d7-8520-8b735f567d41" class="">In the code block above, <code>c</code> is a 2-dimensional array, basically a table. </p><pre id="30b1016c-79b2-4fa0-99a1-62f1e08e3aed" class="code code-wrap"><code>d = np.array([2, 3, 4, 5, 6, 2, 3, 5]).reshape(2, 2, 2)</code></pre><p id="ed5972bf-404e-4a7d-b362-cea172586134" class="">In the code block above <code>d</code> is a 3-dimensional array</p><h3 id="d306ec16-9b40-46fb-ac7e-b9183d5eb957" class="">NumPy Calculations</h3><pre id="460dfcad-a25b-481c-803f-f89beff28204" class="code code-wrap"><code>e = np.array([1, 2, 3, 4, 5, 6])
+print(e.sum()) # Sum the array
+print(e.min()) # Find the minimum value in an array
+print(e.max()) # Find the maximum value in an array
+print(e.mean()) # Find the arithmetic mean of an array</code></pre><h3 id="d1f7fa96-e869-4714-8c80-ac7f61f14318" class="">Special NumPy Arrays</h3><p id="34ba3e8b-8031-46b0-a9e3-2ee813d2fff8" class="">These are some useful arrays that you can quickly create in NumPy. Don&#x27;t worry too much about learning them now but it&#x27;ll be useful to have a cheatsheet of them nearby. </p><pre id="f29000a9-d373-468c-abcb-8b63b5e48db6" class="code code-wrap"><code>np.zeros(5) # Creates an array of zeros with 5 elements
+np.linspace(0, 6, 10) # Creates an array of values from 0 through 6 in 10 even spaces
+np.random.rand(3) # Three random values between 0 and 1
+np.random.randint(1, 1000) # A random integer between 1 and 1000
+np.arange(25) # Like the &quot;Range&quot; function we learned earlier, this is gives you a range of integers between 1 - 25</code></pre><h1 id="bf8d2d0d-b396-4543-9f72-863fbdb535d4" class="">Pandas</h1><p id="21c59098-54fe-417b-8b2c-6054831799cb" class="">Congratulations! You&#x27;ve completed all of the preliminary work to understand Python. As a Data Analyst, I&#x27;ve had to know how to do all of the functions above, but I typically apply Pandas more directly in my work. This is where the meat and potatoes of Data Analysis lies. To see me use Pandas to solve a real-world problem check out the video <a href="https://www.youtube.com/watch?v=pKvWD0f18Pc">linked here</a>. </p><p id="dc191da7-1a38-40dc-9464-20af1f627661" class="">Pandas or &quot;Panel Data&quot; is the core library to handle structured data in Python. Structured data is just data in a tabular format (like in Excel). First let&#x27;s install Pandas. We will install it the same way we installed NumPy. </p><h3 id="ae999192-8d24-47c7-8508-3ebada84e7b4" class="">Install Pandas</h3><p id="8bdbb6e9-d32e-476b-8d29-c8b3c8c3a537" class=""><strong>Windows: </strong></p><p id="a78817e4-ba59-4585-9d03-8d0aa9746a75" class="block-color-yellow_background">Open up &quot;Anaconda Prompt&quot; using the Windows start menu</p><figure id="290f7664-0619-4883-95d5-0f6edd5564a0" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%205.png"><img style="width:1348px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%205.png"/></a></figure><p id="7ab1829d-9a20-44ee-923f-9dc45b4bc556" class="">Type in:</p><pre id="7d810254-5f1d-4e58-b00f-7b85d1640be7" class="code"><code>conda install pandas</code></pre><p id="4e6a455d-164a-4623-b00b-92f43d5d9270" class="">Type <code>y</code> and hit &quot;Enter&quot; and Conda should start installing the package. </p><p id="e1101fcc-2610-4624-b188-ebf35961c41a" class="">It looks really complicated but this is essentially doing the same thing when a normal application installs. The advantage of using Conda like this is that it will help make sure that all of your packages are compatible with one another.</p><p id="5f102747-4fcc-4208-ba97-fdaaf9576adc" class=""><strong>Mac: </strong></p><p id="5d78ee4e-1d37-4302-b75f-6d6dd861acef" class="block-color-yellow_background">Open up your Terminal. You can access it under the Utilities folder in the Applications folder.</p><figure id="60808489-4fd7-46b2-93aa-94f0afde9835" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-12_at_1.43.37_PM.png"><img style="width:801px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-12_at_1.43.37_PM.png"/></a></figure><p id="2397849f-72e6-4450-9c55-6b095f7469b7" class="">Type in:</p><pre id="ab6dd8ca-11cc-4116-b5f2-e5ab83f48a34" class="code"><code>conda install pandas</code></pre><p id="aa367d44-60a7-4734-85c9-66682c139c07" class="">Type <code>y</code> and hit &quot;Enter&quot; and Conda should start installing the package. </p><p id="1bf72a41-5e90-42c4-9ea5-f1593e0ff53b" class="">It looks really complicated but this is essentially doing the same thing when a normal application installs. The advantage of using Conda like this is that it will help make sure that all of your packages are compatible with one another.</p><h3 id="cde4c80e-1728-4187-b9eb-2f5abbbe5bed" class="">Import Pandas</h3><p id="63a98afc-ea4d-4c48-a391-cb6873aa1f77" class="">Like before, we need to import the library into our code editor. We&#x27;ll alias it as <code>pd</code></p><pre id="2dea7615-b8ec-4216-9611-b6d5eca2f202" class="code code-wrap"><code>import pandas as pd</code></pre><h3 id="45b6dea8-1850-4fbd-818c-7d9516c07c83" class="">Series</h3><p id="abe1448f-c157-406b-9798-8a55a4868c04" class="">The core of Pandas is the DataFrame. A DataFrame is basically a table and is composed of Series. A Series is a set of values that are indexed. Try the code below.</p><pre id="e7f07ca2-1fb9-4300-ad0a-e7383d1598e9" class="code code-wrap"><code>series_test = [1, 2, 3, 6, 7]
+print(pd.Series(series_test))</code></pre><figure id="94f2e4b5-05ed-4da1-b0bc-6f7304fa318f" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-13_at_11.42.25_AM.png"><img style="width:336px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-13_at_11.42.25_AM.png"/></a></figure><p id="c4e90d80-968d-4ffc-8c2b-f51b7f72e615" class="">You&#x27;ll see the output is &quot;two&quot; columns. The index on the left and the data on the right. The index is &quot;kind-of&quot; a column, but is <a href="https://towardsdatascience.com/pandas-index-explained-b131beaf6f7b">better understood as the &quot;address&quot;</a> of data in Pandas. We&#x27;ll be working a lot with indices in the future. </p><h3 id="69cbfb62-01b8-4c6c-bd6c-6b3f052cd027" class="">DataFrames</h3><p id="fa77b986-2334-4a8a-8374-5e22dcc2235f" class="">Although we&#x27;ve almost entirely created our own data throughout this process, you&#x27;ll usually work with data that already exists. This is where the <code>read_***</code> method of Pandas comes in. This allows you to read in data from any number of data sources including:</p><ul id="c8ee692b-3541-41d8-a1c6-4b13a0cfcf88" class="bulleted-list"><li>CSVs</li></ul><ul id="ba78873b-4995-4426-8143-faacb8d05bd5" class="bulleted-list"><li>Excel</li></ul><ul id="7b4bd8fa-3c8b-44ed-924b-1576031f6694" class="bulleted-list"><li>Stata</li></ul><ul id="ed053e82-1dfe-43e7-8ef4-879087201a3c" class="bulleted-list"><li>SAS</li></ul><ul id="cad8e8e5-9ed9-4b98-9cbc-88b7ca691d04" class="bulleted-list"><li>SPSS</li></ul><ul id="9c998f26-06b2-4647-8055-a8b03ea85f7e" class="bulleted-list"><li>SQL</li></ul><ul id="c0982ac6-db01-4453-8240-9b7f06d1cff8" class="bulleted-list"><li>Big Query</li></ul><ul id="6e194fee-c7e6-4909-b87e-7bc34002c291" class="bulleted-list"><li>ORC </li></ul><ul id="c493cced-b7ba-4bd5-b73f-c95353650a84" class="bulleted-list"><li>and much more!</li></ul><p id="3a1164be-d4e2-4ab8-9326-5989d3d29ea8" class="">For this tutorial we&#x27;ll be sticking mostly to reading CSV&#x27;s because there&#x27;s usually are special setups you need to get right to read data from SQL databases. </p><p id="c1ff4f72-ed85-4090-b5ba-6051b9692cce" class="">A CSV stands for &quot;comma-separated values&quot; and is a text format that separates each record with a comma and each line with a newline (&quot;enter&quot; key). It is part of a family of formats that include tab-separated values where the commas are separated by tabs, and pipe-separated values where the commas are separated by pipes (|). The commas, tabs, and pipes are what we call &quot;delimiters&quot;.</p><p id="00b4f1ed-79a7-4351-966a-19d7be146863" class="">In the folder you downloaded, there should be a file called &quot;simple_csv.csv&quot;. Let&#x27;s import that.</p><pre id="a8e800be-4fd1-481f-b2e6-4be86426c392" class="code code-wrap"><code>import os # This will be used to tell us where the file is
+import pandas as pd
+
+pwd = os.getcwd() # This creates a string of the folder this Python Script is stored in
+
+filepath = pwd + &quot;/simple_csv.csv&quot; # This creates a string that is the filepath to the simple_csv file
+
+first_import = pd.read_csv(filepath) # This reads the csv into Python
+first_import</code></pre><p id="65407a62-35bb-4751-8dcc-6d40707d5ce4" class="">You&#x27;ll notice that <code>pd.read_csv()</code> looks kind of like a function in that we are inserting arguments into a set of parentheses in order to tell Python what to do. Most of Pandas operates like this with you calling methods with arguments that you specify based on what you need. This is why it&#x27;s very useful to be able to read documentation to figure out how you can specify other settings in a method. </p><p id="4b7b11cb-64ef-438f-8a99-b4b587a28a3c" class="">Let&#x27;s say we want to import an Excel file. Unlike csv&#x27;s, Excel files have sheets that we need to specify so Pandas knows what sheet to import. So how do we figure out what the argument to specify a sheet is? Let&#x27;s look at the documentation. </p><figure id="311cfb82-63a5-4edf-985f-421f5ed88950"><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">pandas.read_excel - pandas 1.2.3 documentation</div><div class="bookmark-description">Read an Excel file into a pandas DataFrame. Supports xls, xlsx, xlsm, xlsb, odf, ods and odt file extensions read from a local filesystem or URL. Supports an option to read a single sheet or a list of sheets. Parameters iostr, bytes, ExcelFile, xlrd.Book, path object, or file-like object Any valid string path is acceptable.</div></div><div class="bookmark-href"><img src="https://pandas.pydata.org/pandas-docs/stable/_static/favicon.ico" class="icon bookmark-icon"/>https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html</div></div></a></figure><figure id="82f0f8f5-1c4c-4652-9f2e-c7ac51085886" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%208.png"><img style="width:1374px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Untitled%208.png"/></a></figure><p id="d634cee7-ea88-4d11-a0c4-fb937b7968c6" class="">You&#x27;ll see here, if you want to read a specific sheet from an Excel file then you&#x27;ll need to use the argument <code>sheet_name</code></p><pre id="df63cd90-4d69-4d37-ab21-eb0a120ac4ad" class="code code-wrap"><code>excel_import = pd.read_excel(filepath, sheet_name=&quot;Sheet1&quot;)</code></pre><p id="4e3d4e8f-6aad-4757-987c-30d26ae96305" class="">Most programming languages and libraries have too much functionality for anyone to memorize. This is why learning how to find and read documentation is very important. </p><h3 id="dd308976-db67-4e71-af3c-5253a3a0a586" class="">Columns</h3><p id="12e26a3d-2efc-49e8-b368-7dd49a37311b" class="">Looking at the <code>first_import</code> variable we&#x27;ve created, let&#x27;s see if we can perform some very basic transformations on it.  </p><pre id="649a7afe-eae5-4bfc-b3d7-fc76b4690920" class="code code-wrap"><code>first_import.Column1
+first_import[&quot;Column1&quot;] # You can use either of these techniques to specify a column in a table. I prefer the second one because it allows your column names to have spaces in them</code></pre><p id="26445ed7-43db-4575-93ca-13fd1238521b" class="">Let&#x27;s see if we can create a column and drop (delete) another column. </p><pre id="9d3829f6-9e2f-41b6-8983-b4da056cbf1f" class="code code-wrap"><code>first_import[&quot;New_Column&quot;] = 1 # You can specify a uniform value for every row 
+
+first_import[&quot;New_Column2&quot;] = range(29) # You can pass a list of values that is as long as the DataFrame
+
+first_import[&quot;Adding Stuff&quot;] = first_import[&quot;Column3&quot;] + first_import[&quot;Column1&quot;] # You can take a couple of columns and add their values together
+
+first_import = first_import.drop(columns=&quot;Column2&quot;)
+
+first_import.drop(columns=&quot;Column3&quot;, inplace=True) # The &quot;drop&quot; method creates a copy of the DataFrame. If you want to change the original DataFrame either do what we did in the line above, or use the &quot;inplace&quot; argument
+
+first_import</code></pre><h3 id="a16342ef-1dcb-4466-8910-4d8a2bcdfc59" class="">Rows</h3><p id="b98f4971-59ae-44ee-9532-abe16f842247" class="">Rows can be a bit more complicated to deal with in Pandas. You&#x27;ll be using the <code>loc</code> and <code>iloc</code> functions a lot.</p><p id="8533efe5-d12e-4c0e-9dc7-cedc23046c02" class="">The <code>loc</code> method allows us to use the names of columns to specify them. </p><p id="3f4a6291-33f6-447c-aec3-f9b568cabf5b" class="">You structure a <code>loc</code> query like below: </p><p id="c74b84fa-b513-490c-8e14-a49a07079a03" class=""><code>dataframe.loc[from_row : to_row , [list_of_columns]]</code></p><pre id="fb69f89b-6672-444d-89d6-b5aaceb3edee" class="code code-wrap"><code>first_import.loc[:, &quot;Column1&quot;] # Select all rows in Column1
+
+first_import.loc[0:4, &quot;Column1&quot;] # Select rows 0 through 4 INCLUSIVE (different from other Python indices) in Column1
+
+first_import.loc[:, [&quot;Column1&quot;, &quot;New_Column2&quot;]] # Select all rows in Column1 and Column2</code></pre><p id="bd1088a3-7848-49db-965d-da9f7918552a" class="">An <code>iloc</code> query is based off of normal numerical indexing but operates mostly the same way:</p><pre id="ca996316-57c7-4165-9ad6-8be87c921dd9" class="code code-wrap"><code>first_import.iloc[:, 1] # Select all rows in Column1
+
+first_import.iloc[0:4, 1] # Select rows 0 through 4 excluding 4 (different from other Python indices) in Column1
+
+first_import.iloc[:, 0:2] # Select all rows in Column1 and Column2</code></pre><p id="93a905ea-1da7-453c-9cca-2ec0cef498bb" class="">Let&#x27;s start working with some real data. Import the dataset <code>netflix_titles.csv</code>. This dataset was created by Shivam Bansal at <a href="https://www.kaggle.com/shivamb/netflix-shows">https://www.kaggle.com/shivamb/netflix-shows</a></p><pre id="dc106121-322b-4a5f-b612-ded6723e90a3" class="code code-wrap"><code>netflix = pd.read_csv(pwd + &quot;/netflix_titles.csv&quot;)
+netflix</code></pre><p id="7925e4fc-d302-43f3-9fd2-bc004d2f4ad4" class="">Taking a look at the data you can see it&#x27;s very thorough and clean. It&#x27;s what we call Tidy Data. The chart below from the pandas website explains it very well:</p><p id="e03446b4-48eb-4c2c-b537-8e1b7c5a2e54" class=""><a href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf">https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf</a></p><figure id="9af839e4-2f1a-4d4b-bcb9-427048eacd9f" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-08_at_8.46.58_PM.png"><img style="width:1020px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-08_at_8.46.58_PM.png"/></a></figure><p id="9d254b61-311f-455d-a797-fdd500574cda" class="">The data we imported looks something like this:</p><figure id="d3294d93-0924-4441-9f86-c47ae7d05cc7" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-14_at_1.37.45_AM.png"><img style="width:2622px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-14_at_1.37.45_AM.png"/></a></figure><h3 id="de1c8046-5cad-48b5-9c05-6b775f3c5a5b" class="">List out Columns</h3><p id="cee4f7d6-4d7d-4184-9677-e9f6fc64231e" class="">This will list all of the columns in the dataset</p><pre id="1500f835-25a2-44f2-a2d3-42c5533771aa" class="code code-wrap"><code>netflix.columns</code></pre><h3 id="b135cdd3-6b9b-47ac-9037-a4e5d04b6907" class="">Basic Descriptive Statistics</h3><p id="85112101-8a36-4f26-96ed-79b7a1b21816" class="">If we want to run some descriptive statistics on all the numerical columns in the dataset use</p><pre id="fbc1ef25-bf3b-4635-b118-6e0494275daf" class="code code-wrap"><code>netflix.describe()</code></pre><h3 id="6734173d-9a26-45bb-9815-d8f30381f488" class="">See Unique Values in a Column</h3><p id="076af452-25b5-457b-850e-3524b2af3d69" class="">If you want to see the unique values in a column just do this</p><pre id="dfce8209-fd6e-4f5c-a4d7-4064417f43a4" class="code code-wrap"><code>netflix[&quot;type&quot;].unique()</code></pre><h3 id="42057dd9-9a02-4069-b9d3-16c3b7dd9d68" class="">Filtering DataFrames</h3><p id="ac37d98f-fc88-4b9b-9c71-c9bec6847f9e" class="">Let&#x27;s try and find only the movies made in Singapore. We&#x27;re going to be using something called subsetting by boolean conditions. </p><pre id="d832ff61-3cfc-40a5-ab37-43bf439d839f" class="code code-wrap"><code>netflix[netflix[&quot;country&quot;] == &quot;Singapore&quot;] </code></pre><p id="b1be92ac-1359-4ba0-bdde-0271afba6f00" class="">Let&#x27;s see if we can use multiple conditions. We&#x27;ll be using those bitwise operators we mentioned earlier. </p><pre id="6f9932f6-fcc9-4c58-89e4-65fa6f198208" class="code code-wrap"><code>netflix[(netflix[&quot;country&quot;] == &quot;Singapore&quot;) &amp; (netflix[&quot;rating&quot;] == &quot;TV-MA&quot;)]</code></pre><p id="a2dc822a-a249-4902-86a2-63734ab8407f" class="">It is important that you enclose each case in parentheses. </p><h3 id="b5180736-91f8-4c7b-b30a-ca2dffbf710b" class="">DateTimes</h3><p id="0df6cfff-3729-42a2-abc1-8c5890fe6fe4" class="">As a Data Analyst, Dates and Times will be one of the most challenging datatypes you&#x27;ll encounter. Different systems will store them differently, and there will often be different formats of dates in the same database. I could make an entire lesson on just Dates and Times so we&#x27;ll just stick with the basics here. </p><pre id="a557e222-59a8-4d9b-af5b-75c176452192" class="code code-wrap"><code>netflix[&quot;computer_date&quot;] = pd.to_datetime(netflix[&quot;date_added&quot;])</code></pre><p id="dfe20eba-8e39-4640-b484-2eb06964ea75" class="">We ended up with a couple of <code>NaT</code> values which are the datetime equivalents of <code>NaN</code>. Let&#x27;s fill those in. We&#x27;ll have to create a <code>datetime</code> variable using the <code>datetime</code> package. </p><pre id="b14bf103-c78a-41d7-87fe-59bdf2f9e7b0" class="code code-wrap"><code>import datetime
+
+netflix[&quot;computer_date&quot;].fillna(datetime.datetime(2020, 1,1))</code></pre><p id="e6733f85-26eb-4310-b0b4-2cf0ac301199" class="">I also want to tell you about something called Unix Time. You&#x27;ll encounter it in a lot of datasets, it&#x27;s basically a way to express a date and time as an integer. It counts up 1 for every second since January 1st, 1970, known as the Unix Epoch. </p><pre id="f9ba63a1-7ebd-4806-81b6-522277d7ce31" class="code code-wrap"><code>netflix[&quot;unix_time&quot;] = netflix[&quot;computer_date&quot;].astype(int)</code></pre><h3 id="c8eef7e9-d8c7-4014-ba91-0cd9808dbde3" class="">Splitting Columns</h3><p id="23125529-2cf3-489c-ba74-bda21ba28933" class="">Sometimes we&#x27;ll encounter a DataFrame column with data we want to split on some delimiter. Let&#x27;s try and split our &quot;date_added&quot; column into two columns that way we can compare the year media shows up on Netflix to when it was released. </p><p id="01f8fadb-a6d1-4666-9c3b-7c8c9c5ab2b8" class="">In this case we&#x27;ll want to split on a comma, and looking through the data, we know that we&#x27;ll end up with two different columns. 
+We can split this data using a <code>str.split</code> method. We can also specify the two columns ahead of time like so. </p><pre id="90f03d6f-aec4-4fa6-bb7c-72615bec200b" class="code code-wrap"><code>netflix[[&quot;Date Part 1&quot;, &quot;Date Part 2&quot;]] = netflix[&quot;date_added&quot;].str.split(&quot;, &quot;, expand=True)</code></pre><p id="b9b2218b-f7a0-4160-bd1a-908a0622b775" class=""><code>expand=True</code> is used to create new columns instead of creating a list of all the split elements in one column. </p><h3 id="7c01470d-f626-4e3f-8903-fffe7f36fb96" class="">Renaming Columns</h3><p id="56ffd0c1-a9ff-41f6-a5d6-60601e4f15f8" class="">I named the year column we just split off <code>Date Part 2</code> on purpose. We will now rename it. </p><pre id="4c5f5236-1955-4e2e-b528-a9d233b42e42" class="code code-wrap"><code>netflix.rename(columns={&quot;Date Part 2&quot;: &quot;Year&quot;}, inplace=True)</code></pre><p id="bab01fe2-312e-43f8-b297-fbb7f1fa054b" class="">This is another one of those methods that we can tell to change the DataFrame <code>inplace</code>. If you call the DataFrame now you&#x27;ll notice that there is a <code>Year</code> column at the end. </p><h3 id="a7cc3e2a-782e-4c85-8201-9fef641d99d2" class="">Dealing with Null Values - Fill Na</h3><p id="20df5be1-3d7c-438d-b7ba-c319fcb51a46" class="">Often you&#x27;ll find <code>NaN</code> data in your DataFrame. This means &quot;Not a Number&quot; and is similar to a &quot;Null&quot; value. You often don&#x27;t want this in your data, let&#x27;s practice getting rid of it. </p><pre id="bf2ac9b0-a81b-48d6-94d1-b34014ea6a38" class="code code-wrap"><code>netflix[&quot;cast&quot;].fillna(value=&quot;no cast&quot;, inplace=True)</code></pre><p id="1e152072-4548-46e9-a1a0-36eb6d7f9f58" class="">You can also input a list into the <code>value</code> argument to gain more granular control of what you&#x27;re switching your <code>NaN</code>s for. </p><h3 id="8eb51f73-ce60-4df7-b16e-9988ba3bacaa" class="">Applying a Function to Every Row</h3><p id="1598d8ff-e632-4314-80ef-66089a38ca8c" class="">Next, I&#x27;d like to count the number of genres that a film is listed in. This can be done multiple ways, but I&#x27;m going to use something called a lambda function and the <code>apply</code> method to accomplish this. </p><p id="12ee0c3a-d896-4ce6-a9eb-da4f01d2e714" class="">As a quick aside, a lambda function allows you to write a function in one line. </p><pre id="b1b58a94-33e3-4193-b52f-3df0425f8836" class="code code-wrap"><code>the_adder = lambda x: x + 210101</code></pre><p id="6ee69b99-57b7-4729-a06b-f243ed3218d9" class="">In this situation, the argument is <code>x</code> and you perform the calculations with whatever is tot he right of the colon. </p><p id="3ec65b43-1857-4654-8fc5-a839914c7ba3" class="">We can use this to apply logic to every row of a DataFrame using either the <code>map</code> or the <code>apply</code> method. </p><p id="c39dd32c-c62f-4ac5-9f26-3eb02263470d" class="">The <code>map</code> method will pass each element of a Series (remember a series is basically a column of a DataFrame) to the lambda function. The <code>apply</code> method will pass an entire row to the lambda function. In short this means that if you want to perform calculations using multiple columns of data, use the <code>apply</code> method, otherwise use the <code>map</code> method. </p><pre id="2e7045c2-4eb4-41b4-aa7a-9313eccdb0c7" class="code code-wrap"><code>netflix[&quot;genre_count&quot;] = netflix[&quot;listed_in&quot;].map(lambda x: len(x.split(&quot;,&quot;)))</code></pre><p id="1eae2b84-74c0-4930-93f0-046ef13a58eb" class="">What Pandas is doing here, is it&#x27;s passing each element of the Series <code>netflix[&quot;listed_in&quot;]</code> to the lambda function as <code>x</code>. We then perform the logic with the code after the colon. </p><p id="b89b77c2-0bbc-4be4-bd50-098c25882d6b" class="">As an example of using the <code>apply</code> method let&#x27;s try and count the number of cast members and genres. </p><pre id="2bfb855c-f768-4fe2-bf44-f18ad5ee1d4d" class="code code-wrap"><code>netflix[&quot;nonsensical_columns&quot;] = netflix.apply(lambda x: len(x[&quot;cast&quot;].split(&quot;,&quot;)) + len(x[&quot;listed_in&quot;].split(&quot;,&quot;)), axis = 1)</code></pre><h3 id="f32252fe-6509-4395-9f4a-72c3a6ada8ad" class="">GroupBy, Aggregation, and Sorting Values</h3><p id="3887186d-5767-43bb-b086-f085ca45a224" class="">Oftentimes you&#x27;ll want to perform aggregations on your data. In this case, you&#x27;ll want to use <code>groupby</code>s and aggregations. Let&#x27;s count the number of movies per country and sort the list in descending order. </p><pre id="fe2357cc-8b05-4127-8f64-7841de787212" class="code code-wrap"><code>netflix.groupby(&quot;country&quot;)[&quot;show_id&quot;].count()</code></pre><p id="b7c8e5f6-a365-4be2-80f2-4157f5a3fd23" class="">The above code will output something called a <code>groupby</code> object. This isn&#x27;t too useful, so we&#x27;ll need to turn the data back into a DataFrame using a method called <code>reset_index()</code>. </p><pre id="8d25389e-d50a-49d5-ab45-6e5b3f4a7f1a" class="code code-wrap"><code>netflix.groupby(&quot;country&quot;)[&quot;show_id&quot;].count().reset_index()</code></pre><p id="1d005daf-4070-4782-95c9-6d45cd331073" class="">Now, let&#x27;s sort our values. </p><pre id="68efcdbe-d11b-4540-bffd-9148b5da66d1" class="code code-wrap"><code>netflix_movies_by_country = netflix.groupby(&quot;country&quot;)[&quot;show_id&quot;].count().reset_index().sort_values(by=&quot;show_id&quot;, ascending=False)</code></pre><p id="34d72abd-52b3-4f53-8c9a-ba19811a04fc" class="">As you can see, Pandas makes it very easy to just string together commands to transform DataFrames. This is one of the great things about Pandas. You can use other aggregations if you&#x27;d like also. </p><h3 id="b4a3075f-e418-4176-8a05-058b125d83a2" class="">Joins and Unions</h3><p id="73826a21-ffba-4da8-b08b-46b5c647aa7d" class="">Oftentimes we&#x27;ll want to enrich our data by adding more data from other datasets to it. There are two major ways we can combine our datasets together: (The following visualizations will be coming from my FREE Tableau Course)</p><p id="e1f09e9a-abcb-4619-85fa-e8d4c652ab28" class=""><strong>Unions</strong></p><p id="014e52df-d7a8-4cb3-9cad-e6e52377b362" class="">Put simply, a union (SQL Union) is the process of stacking two tables on top of one another. You will usually do this when your data is split up into multiple sections like an excel spreadsheet of a year’s sales split by month.<div class="indented"><figure id="85d854f0-509d-4fd5-b010-e570d1e745df" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.23.40_PM.png"><img style="width:696px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.23.40_PM.png"/></a></figure><p id="94bc48d4-b466-4d22-bfb6-41ebefeb4dde" class="">
+</p></div></p><pre id="1b8e9066-e7a3-4306-ab94-1708ac7f27c5" class="code code-wrap"><code>second_dataset = pd.read_csv(pwd + &quot;/netflix_titles_second.csv&quot;)
+
+new_dataset = pd.concat([netflix, second_dataset])</code></pre><p id="a3da992e-c387-4651-9014-8d3a6815ac81" class="">In the above code we Unioned the datasets by using the <code>pd.concat</code> method. This is an easy way to combine a bunch of datasets together all at once. You can use this with a for loop for example to combine a bunch of datasets together. I use this when querying APIs and getting the results as DataFrames, to combine all of the data at once.</p><p id="ce6bc62d-529a-4b1a-8acd-5a70a9e3dddf" class=""><strong>Joins</strong></p><p id="6c18b956-c733-417a-b540-3263c5d21994" class="">Joins combine two tables horizontally. For a join, like a Union you have to have at least two tables, what we call our Left Table and our Right Table. You (mostly) have to have at least one matching column between the two tables, and you will match rows from these columns. The most common way to visualize the types of Joins are through Venn Diagrams.</p><figure id="7bf8a913-00cd-4ab3-9b36-16555ea15420" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.36.03_PM.png"><img style="width:640px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.36.03_PM.png"/></a></figure><figure id="c61db6ad-6104-4e00-ab56-ec8664036f52" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.36.37_PM.png"><img style="width:482px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.36.37_PM.png"/></a></figure><p id="809a932a-f3b9-45be-ae91-a4cafcd21b2d" class="">You’ll mostly be sticking to Left and Inner Joins. It’s worth your time to learn more about Joins because they are some of the most powerful tools you can use to manipulate data. I use Joins basically every single day in my work. For this course we’re going to stick with relatively simple Joins.</p><p id="a81a80a0-0566-4ff8-84bd-ceeebaaa47db" class="">We’re now going to do something called an Inner Join on the [ID] column which will only output exact matches from the [ID] column in our output.</p><figure id="001270e4-21b0-41b4-9761-fdd1f3cbe669" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.37.59_PM.png"><img style="width:685px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.37.59_PM.png"/></a><figcaption>Inner Join</figcaption></figure><p id="2b4ffeb1-b909-4ffa-bde4-0c0c9810ec42" class="">A Left Join keeps all of the data from your Left table and whatever matches from the Right table.</p><figure id="496d01f7-ec3d-44a4-856b-9ee4ef9b0776" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.39.07_PM.png"><img style="width:675px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.39.07_PM.png"/></a><figcaption>Left Join</figcaption></figure><p id="8d48effd-4f08-4115-b6cb-0ee989087c2f" class="">A Right Join does the exact opposite and keeps everything from your Right table while only bringing in the matches from the Left table.</p><figure id="f2e5d501-a3ad-426e-9992-0728edb2f48f" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.39.43_PM.png"><img style="width:680px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.39.43_PM.png"/></a><figcaption>Right Join</figcaption></figure><p id="9828a141-08a6-4a12-b728-8576fc5929c9" class="">A Full Join brings in everything from both tables and matches whatever will match from the columns you specify.</p><figure id="24e84ae8-4198-414d-b9c6-00b030fad07a" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.40.52_PM.png"><img style="width:678px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.40.52_PM.png"/></a></figure><p id="0bd9d7ee-c347-44b5-9fd3-b8e24a4e02f2" class=""><em>Common Join Gotchas</em></p><p id="e3e98532-4003-46ca-b4d4-b96d828c6b65" class="">Joins can get a bit tricky because of the potential for gotchas when joining two tables. The most common one is row duplication where you accidentally duplicate rows because the columns you’re matching on have multiple potential matches. In the example below we’re going to try an Inner Join. You’ll notice the columns in Orange were duplicated.</p><figure id="2a24c124-d2ff-4154-b521-8d1743bed3ca" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.42.17_PM.png"><img style="width:687px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.42.17_PM.png"/></a><figcaption>Join duplication &quot;error&quot;</figcaption></figure><p id="65791f2f-46ab-4e76-87e8-c5a504b06d8f" class="">This isn’t an error per se but it is something to watch out for as it can cause you to duplicate data you don’t intend to duplicate.</p><figure id="a679c50e-ad33-4aaf-839a-c79e0e544f8e" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.42.37_PM.png"><img style="width:682px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_12.42.37_PM.png"/></a><figcaption>Join duplication &quot;error&quot;</figcaption></figure><p id="19bc9ffc-56e3-44f5-80ed-dbecfb0ef0e9" class="">Let&#x27;s combine our data using a left join with the <code>netflix_movies_by_country</code> data we made earlier. </p><pre id="cdde9c89-8000-46d1-9fdd-38edbad21a95" class="code code-wrap"><code>netflix_merged = pd.merge(left = new_dataset, right = netflix_movies_by_country, how =&quot;inner&quot;, left_on = [&quot;country&quot;], right_on = [&quot;country&quot;])</code></pre><h3 id="a4814fee-f478-4a2c-bcdb-21fde12f0cf7" class="">Pivot and Melt</h3><p id="6ca0229a-1636-4ab0-83b8-f77192afb55f" class=""><strong>Pivot</strong></p><p id="37f48c90-f0d9-4142-b63b-2e29b304f8ca" class="">Oftentimes you&#x27;ll want to pivot or &quot;melt&quot; data. Pivoting data takes it from the &quot;long&quot; format that we are used to and puts it in a &quot;wide&quot; format that might be easier to read. Here&#x27;s an example. </p><pre id="c719b235-00c6-49a8-aa55-f94c70ddd31b" class="code code-wrap"><code>pivot_table = netflix.pivot_table(index=&quot;country&quot;, columns=&quot;type&quot;, values= &quot;title&quot;, aggfunc=&#x27;count&#x27;, fill_value=0).reset_index()</code></pre><figure id="d4718a99-0950-4d9d-b724-b231b6752cda" class="image"><a href="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_1.07.38_PM.png"><img style="width:1108px" src="Python%20for%20Data%20Analysts%20be4d66db72d948bcbca5aeac09534a77/Screen_Shot_2021-03-15_at_1.07.38_PM.png"/></a></figure><p id="ff4d517f-d7a8-4f0c-b888-de67ae5d7d25" class="">You typically want to pivot data when you want to present it to individuals as it will be easier to digest. </p><p id="e3d4f7bd-d76c-41c3-bdff-c197e2fd106a" class=""><strong>Melt</strong></p><p id="6f71cd56-7d62-4d2a-9297-663c75ddbee3" class="">Oftentimes I receive data from clients and coworkers that&#x27;s in a &quot;wide&quot; format that I&#x27;d like to convert to a &quot;long&quot; format in order to more easily analyze it in Python. Since the data we have is already in the long format, I&#x27;ll use the example provided on the Pandas website to illustrate how to transform it. </p><pre id="541c1099-a7db-49e4-9a04-434dfd775de0" class="code code-wrap"><code>df = pd.DataFrame({&#x27;A&#x27;: {0: &#x27;a&#x27;, 1: &#x27;b&#x27;, 2: &#x27;c&#x27;},
+                   &#x27;B&#x27;: {0: 1, 1: 3, 2: 5},
+                   &#x27;C&#x27;: {0: 2, 1: 4, 2: 6}})
+
+df.melt(id_vars=[&#x27;A&#x27;], value_vars=[&#x27;B&#x27;],
+        var_name=&#x27;myVarname&#x27;, value_name=&#x27;myValname&#x27;)</code></pre><h1 id="eddffa68-f6f1-4804-968b-06a63a906244" class="">Summary</h1><p id="df35ba1a-e0e9-4e19-950b-d412c8ff0f00" class="">Congratulations! You&#x27;ve reached the end of the course. You&#x27;ve learned a lot and I hope that I explained everything in a way that was easy to follow. Don&#x27;t feel bad if you need to go through the content again, this stuff can be very difficult to understand on the first go. This course should give you a good overview to get you started with using Python for Data Analysis. After you finish this, <a href="https://www.youtube.com/watch?v=pKvWD0f18Pc">I have a video here</a> where I use many of the skills taught in this course to solve a real world issue with real (anonymized) data. The data is all available to you so you can follow along. </p><p id="7f57ab14-9851-47a2-9911-10b461d1afac" class="">These skills are very useful to anyone who works regularly with data and once you master them you can comfortably charge in the upper five-figures for these skills and by combining these with knowledge of another tool or area like Tableau or an industry, you can comfortably charge six-figures. </p><p id="ab46c35f-f5b6-40c4-bcb3-198a0f1ea81a" class="">This is just the start of your journey, so if you need any help please feel free to let me know!</p><p id="8605d748-0928-4571-96c2-e51fa8c2268f" class="">
+</p></div></article></body></html>
